@@ -174,6 +174,7 @@ data/
 * ACID transactions with write-ahead logging
 
 ## Project Structure
+```
 pinedb/
 ├── cli/                     # CLI interface
 │   └── repl.py              # REPL: interactive SQL shell
@@ -204,6 +205,6 @@ pinedb/
 ├── logs/                    # Optional runtime logs
 ├── data/                    # Actual columnar storage (per-table)
 └── main.py                  # Application entry point
-
+```
 Future plan:
 ![alt text](https://github.com/dbarshan/pine-db/blob/master/doc/roadmap.png)
