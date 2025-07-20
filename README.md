@@ -173,36 +173,37 @@ data/
 * SQL JOIN support
 * ACID transactions with write-ahead logging
 
+## Project Structure
 pinedb/
 ├── cli/                     # CLI interface
-│   └── repl.py              # REPL: interactive shell
+│   └── repl.py              # REPL: interactive SQL shell
 ├── core/                    # Core orchestrators
 │   ├── engine.py            # Entry point to query execution
-│   └── context.py           # Query execution context
-├── parser/                  # SQL parser
-│   ├── parser.py            # SQL to AST
-│   └── tokenizer.py         # Optional tokenizer/lexer
+│   └── context.py           # Query execution context manager
+├── parser/                  # SQL parser components
+│   ├── parser.py            # SQL to AST parser
+│   └── tokenizer.py         # (Optional) SQL tokenizer/lexer
 ├── plan/                    # AST and logical query plans
 │   ├── ast.py               # AST node classes
 │   └── query_plan.py        # Logical query plan representations
-├── storage/                 # Storage engine
-│   ├── base.py              # Abstract base storage interfaces
-│   ├── text_engine.py       # Text-based storage implementation
-│   ├── file_manager.py      # Low-level file I/O
+├── storage/                 # Storage engine modules
+│   ├── base.py              # Abstract base class for storage
+│   ├── text_engine.py       # Text-based columnar storage engine
+│   ├── file_manager.py      # Low-level file I/O operations
 │   └── metadata.py          # Table schema & catalog manager
-├── execution/              # Query execution logic
-│   ├── executor.py          # SELECT, INSERT, DELETE executors
-│   ├── condition.py         # WHERE clause logic
-│   └── row_builder.py       # Assemble row from columns
+├── execution/               # Query execution logic
+│   ├── executor.py          # Query executors for SELECT, INSERT, DELETE
+│   ├── condition.py         # WHERE clause evaluation
+│   └── row_builder.py       # Reconstruct rows from columnar data
 ├── models/                  # Shared data models
 │   ├── table_schema.py      # Table and column definitions
-│   ├── result_set.py        # Results returned to user
-│   └── value.py             # Data type abstraction
-├── tests/                   # Unit tests
+│   ├── result_set.py        # Query result wrapper
+│   └── value.py             # Data type handling
+├── tests/                   # Unit and integration tests
 │   └── ...
-├── logs/                    # (Optional) runtime logs
-├── data/                    # Actual columnar storage
-└── main.py                  # App entry point
+├── logs/                    # Optional runtime logs
+├── data/                    # Actual columnar storage (per-table)
+└── main.py                  # Application entry point
 
 Future plan:
 ![alt text](https://github.com/dbarshan/pine-db/blob/master/doc/roadmap.png)
