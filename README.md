@@ -101,13 +101,21 @@ This phase focuses on:
 
 ### 6.2 Interfaces & Extensibility
 
-```java
-interface StorageEngine {
-    void createTable(TableSchema schema);
-    void insert(String tableName, List<String> values);
-    ResultSet select(String tableName, List<String> columns, Condition condition);
-    ...
-}
+```python
+class StorageEngine(ABC):
+
+    @abstractmethod
+    def create_table(self, schema: TableSchema) -> None:
+        pass
+
+    @abstractmethod
+    def insert(self, table_name: str, values: List[str]) -> None:
+        pass
+
+    @abstractmethod
+    def select(self, table_name: str, columns: List[str], condition: Condition) -> ResultSet:
+        pass
+
 ```
 
 ### 6.3 Data Structures
