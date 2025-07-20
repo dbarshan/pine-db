@@ -166,7 +166,7 @@ data/
 ## 📌 9. Optional Tech Stack (Flexible)
 
 * Language: **Python**
-* Parser: Custom or **ANTLR**, **JSqlParser**, **sqlglot**
+* Parser: Custom or **ANTLR**, **sqlglot**
 * Test Framework: JUnit / PyTest
 * Logging: SLF4J / Logback
 
