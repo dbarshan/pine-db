@@ -174,37 +174,7 @@ data/
 * ACID transactions with write-ahead logging
 
 ## Project Structure
-```
-pinedb/
-├── cli/                     # CLI interface
-│   └── repl.py              # REPL: interactive SQL shell
-├── core/                    # Core orchestrators
-│   ├── engine.py            # Entry point to query execution
-│   └── context.py           # Query execution context manager
-├── parser/                  # SQL parser components
-│   ├── parser.py            # SQL to AST parser
-│   └── tokenizer.py         # (Optional) SQL tokenizer/lexer
-├── plan/                    # AST and logical query plans
-│   ├── ast.py               # AST node classes
-│   └── query_plan.py        # Logical query plan representations
-├── storage/                 # Storage engine modules
-│   ├── base.py              # Abstract base class for storage
-│   ├── text_engine.py       # Text-based columnar storage engine
-│   ├── file_manager.py      # Low-level file I/O operations
-│   └── metadata.py          # Table schema & catalog manager
-├── execution/               # Query execution logic
-│   ├── executor.py          # Query executors for SELECT, INSERT, DELETE
-│   ├── condition.py         # WHERE clause evaluation
-│   └── row_builder.py       # Reconstruct rows from columnar data
-├── models/                  # Shared data models
-│   ├── table_schema.py      # Table and column definitions
-│   ├── result_set.py        # Query result wrapper
-│   └── value.py             # Data type handling
-├── tests/                   # Unit and integration tests
-│   └── ...
-├── logs/                    # Optional runtime logs
-├── data/                    # Actual columnar storage (per-table)
-└── main.py                  # Application entry point
-```
+TBD
+
 Future plan:
 ![alt text](https://github.com/dbarshan/pine-db/blob/master/doc/roadmap.png)
